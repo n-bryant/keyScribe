@@ -1,2 +1,2 @@
 # keyScribe
-keyScribe is a playable JS web piano that transcribes what you play into sheet music
+keyScribe is a web piano that transcribes what you play into sheet music.
