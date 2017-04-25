@@ -25,9 +25,39 @@ try {
 }
 
 /* ToneJS */
-//create a synth and connect it to the master output (i.e. speakers)
-var synth = new Tone.Synth().toMaster();
+// building of synths
+let synths = {};
+const keys = Array.from(document.querySelectorAll('.key'));
+keys.forEach((key) => {
+  let id = key.attributes['data-key'].value;
+  synths[id] = {
+    playing: false,
+    synth: new Tone.Synth().toMaster(),
+    tone: document.querySelector(`.key[data-key="${id}"] .note`).textContent.replace('/', '')
+  }
+});
 
-//play a middle 'C' for the duration of an 8th note
-// synth.triggerAttackRelease("C4", "8n");
-const keys = document.querySelectorAll('.key');
+window.addEventListener('keydown', () => {
+  playTone(event, false);
+});
+window.addEventListener('keyup', () => {
+  playTone(event, true);
+});
+
+function playTone(e, releasing) {
+  const pianoKey = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+  if(!pianoKey) return;
+  e.preventDefault();
+  const synth = synths[e.keyCode].synth;
+  const tone = synths[e.keyCode].tone;
+
+  if (!releasing && !synths[e.keyCode].playing) {
+    synths[e.keyCode].playing = true;
+    pianoKey.classList.add('playing');
+    synth.triggerAttack(tone);
+  } else {
+    synths[e.keyCode].playing = false;
+    pianoKey.classList.remove('playing');
+    synth.triggerRelease();
+  }
+}
