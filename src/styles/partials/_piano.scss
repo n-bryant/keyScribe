@@ -57,6 +57,9 @@
       &:hover {
         background: $lime;
       }
+      &.playing {
+        background: $lime;
+      }
     }
   }
 }

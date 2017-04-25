@@ -105,6 +105,8 @@ body {
       width: 30px; }
       .black-keys .black-key-group .key:hover {
         background: #60D394; }
+      .black-keys .black-key-group .key.playing {
+        background: #60D394; }
 
 .key {
   border: 1px solid #373737;
