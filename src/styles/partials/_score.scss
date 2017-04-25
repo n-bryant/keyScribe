@@ -1,0 +1,14 @@
+.notation-wrapper {
+  background: $light;
+  border: 4px solid $lime;
+  margin: 0 auto;
+  max-width: 900px;
+  overflow-x: scroll;
+  width: 85%;
+}
+
+.notation-container {
+  text {
+    display: none;
+  }
+}

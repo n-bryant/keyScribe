@@ -1,0 +1,89 @@
+.piano-wrapper {
+  font-size: .75rem;
+  margin: 5rem auto;
+  overflow-x: auto;
+  width: 85%;
+
+  .piano-container {
+    background: $medium;
+    background-image: url(https://www.transparenttextures.com/patterns/diagmonds.png);
+    border-radius: 20px;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 900px;
+  }
+}
+
+.keys-wrapper {
+  margin: 0 auto;
+  width: 840px;
+}
+.keys-container {
+  position: relative;
+}
+
+.white-keys {
+  .key {
+    background: $light;
+    color: $darkest;
+    height: 200px;
+    text-shadow: 0px 1px 1px rgba(32,32,32,0.5);
+    width: 40px;
+  }
+}
+
+.black-keys {
+  position: absolute;
+
+  .black-keys-container {
+    position: relative;
+    transform: translateX(25px);
+    width: 100%;
+  }
+
+  .black-key-group {
+    display: inline-block;
+    margin-right: 37px;
+
+    .key {
+      background: $darkest;
+      color: $light;
+      display: inline-block;
+      height: 120px;
+      margin-right: 8px;
+      text-shadow: 0px -1px 1px rgba(255, 255, 255, 0.5);
+      width: 30px;
+
+      &:hover {
+        background: $lime;
+      }
+    }
+  }
+}
+
+.key {
+  border: 1px solid $mediumDark;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0px 5px 1px rgba(31, 31, 31,  0.35);
+  cursor: pointer;
+  transform: translateY(0);
+  transition: transform .25s ease;
+
+  .key-label {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: flex-end;
+  }
+
+  &:hover {
+    background: $lime;
+  }
+
+  &.playing {
+    background: $lime;
+    transform: translateY(.5rem);
+    transition: transform .25s ease;
+  }
+}
